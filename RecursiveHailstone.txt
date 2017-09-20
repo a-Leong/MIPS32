@@ -1,0 +1,40 @@
+#RECURSIVE APPROACH
+
+rHailstone:
+addiu $sp, $sp, -32
+sw $ra, 20($sp)
+sw $fp, 16($sp)
+addiu $fp, $sp, 28
+sw $a0, 0($fp)
+
+lw $v0, 0($fp)
+addiu $t0, $0, 1
+beq $2, $t0, if
+SRL $t1, $v0, 1
+SLL $t2, $v0, 1
+beq $t1, $t2, elseif
+addu $a0, $a0, $a0
+addu $a0, $a0, $a0
+addiu $a0, $a0, 1
+jal rHailstone
+lw $v1, 0($fp)
+addiu $v0, $v1, 1
+jr end
+
+
+if:
+li $v0, 0
+jr end
+
+elseif:
+SRL $v0, $v0, 1
+move $a0, $v0
+jal rHailstone
+lw $v1, 0($fp)
+addiu $v0, $v1, 1
+
+end:
+lw $ra, 20($sp)
+lw $fp, 16($sp)
+addiu $sp, $sp, 32
+jr $ra

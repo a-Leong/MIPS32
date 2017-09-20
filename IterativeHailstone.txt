@@ -1,0 +1,37 @@
+#ITERATIVE APPROACH
+
+iHailstone:
+addiu $sp, $sp, -32
+sw $ra, 20($sp)
+sw $fp, 16($sp)
+addiu $fp, $sp, 28
+sw $a0, 0($fp)
+
+addiu $t0, $0, 0
+addiu $t1, $0, 1
+
+while:
+beq $a0, $t1, end
+addiu $t0, $t0, 1
+srl $t3, $a0, 1
+sll $t3, $t3, 1
+bne $t3, $a0, else
+sra $t3, $t3, 2 
+j while
+
+else:
+addu $a0, $a0, $a0
+addu $a0, $a0, $a0
+addiu $a0, $a0, 1
+j while
+
+sw $31, $t0
+
+end:
+
+move $v0, $t0
+lw $ra, 20($sp)
+lw $fp, 16($sp)
+addiu $sp, $sp, 32
+jr $ra
+
