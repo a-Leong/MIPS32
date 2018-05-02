@@ -5,7 +5,7 @@ My personal implementation of a five stage pipelined MIPS CPU with forwarding in
 ![MIPS32](https://i.imgur.com/kVBzWYj.jpg "MIPS32")
 
 ## Early Stage Pixel Display Demo
-![MIPS32Demo](https://i.imgur.com/weZxLRO.gifv "MIPS32Demo")
+![MIPS32Demo](https://i.imgur.com/weZxLRO.gif "MIPS32Demo")
 
 ## Pipeline blackboxes exploded
 ![MIPS_PIPELINES](https://i.imgur.com/KRe2BEn.png "MIPS_PIPELINES")
